@@ -18,12 +18,7 @@ function safeStringify(obj) {
 
 function assert(condition, source, value, label) {
 	if (!condition) {
-		throw new Error(`
-			Expected:
-			${safeStringify(source)}
-			to ${label}
-			${value ? safeStringify(value) : ''}
-		`);
+		throw new Error(`\n\nExpected:\n\n${safeStringify(source)}\n\nto ${label}:\n\n${value ? safeStringify(value) : ''}`);
 	}
 }
 

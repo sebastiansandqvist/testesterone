@@ -209,6 +209,16 @@ describe('expect', function() {
 			});
 		});
 
+		it('stringifies objects in error message', function(done) {
+			try {
+				expect({ a: 1 }).to.deep.equal({ a: 2 });
+			}
+			catch (e) {
+				assert.equal(e.message, '\n\nExpected:\n\n{\n  "a": 1\n}\n\nto deep equal:\n\n{\n  "a": 2\n}');
+				done();
+			}
+		});
+
 	});
 
 	describe('exist', function() {
