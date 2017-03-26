@@ -2,7 +2,7 @@ const deepEqual = require('deep-equal');
 
 function safeStringify(obj) {
 	let cache = [];
-	const returnValue = JSON.stringify(obj || {}, function(key, value) {
+	const returnValue = JSON.stringify(obj, function(key, value) {
 		if (typeof value === 'object' && value !== null) {
 			if (cache.indexOf(value) === -1) {
 				cache.push(value);
@@ -16,10 +16,29 @@ function safeStringify(obj) {
 	return returnValue;
 }
 
-function assert(condition, source, value, label) {
-	if (!condition) {
-		throw new Error(`\n\nExpected:\n\n${safeStringify(source)}\n\nto ${label}:\n\n${value ? safeStringify(value) : ''}`);
-	}
+function line(str) {
+	return '\n\n' + str;
+}
+
+function assert(condition, source, label, value) {
+	console.assert(
+		condition,
+		line('Expected:') +
+		line(safeStringify(source)) +
+		line('to ' + label + ':') +
+		line(safeStringify(value))
+	);
+}
+
+function oneLineAssert(condition, source, label, value = '') {
+	console.assert(
+		condition,
+		'Expected ' + source + ' to ' + label + ' ' + value
+	);
+}
+
+function isSimple(x) {
+	return (typeof x === 'boolean') || (typeof x === 'number') || (typeof x === 'string') || (x === null) || (x === undefined);
 }
 
 module.exports = function expect(source) {
@@ -52,7 +71,12 @@ module.exports = function expect(source) {
 				deep ? 'deep ' : '',
 				'equal'
 			].join('');
-			assert(condition, source, value, label);
+			if (isSimple(source) && isSimple(value)) {
+				oneLineAssert(condition, source, label, value);
+			}
+			else {
+				assert(condition, source, label, value);
+			}
 		},
 		exist() {
 			const exists = source !== undefined && source !== null;
@@ -61,7 +85,7 @@ module.exports = function expect(source) {
 				negate ? 'not ' : '',
 				'exist'
 			].join('');
-			assert(condition, source, '', label);
+			oneLineAssert(condition, safeStringify(source), label);
 		},
 		explode() {
 			let threw = false;
@@ -74,7 +98,7 @@ module.exports = function expect(source) {
 				negate ? 'not ' : '',
 				'throw'
 			].join('');
-			assert(condition, source.name || '[Function]', '', label);
+			oneLineAssert(condition, '[Function] `' + source.name + '` ', label);
 		}
 	};
 

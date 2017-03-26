@@ -4,6 +4,7 @@
   "description": "In-browser test runner",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c test/demo/rollup.config.js --watch",
     "test": "mocha"
   },
   "repository": {
@@ -25,8 +26,14 @@
   },
   "homepage": "https://github.com/sebastiansandqvist/s-browser-test#readme",
   "devDependencies": {
+    "@seabass/eslint-config": "1.8.3",
     "chai": "3.5.0",
-    "mocha": "3.2.0"
+    "mocha": "3.2.0",
+    "rollup": "0.41.6",
+    "rollup-plugin-buble": "0.15.0",
+    "rollup-plugin-commonjs": "8.0.2",
+    "rollup-plugin-node-resolve": "2.0.0",
+    "rollup-watch": "3.2.2"
   },
   "dependencies": {
     "deep-equal": "1.0.1"

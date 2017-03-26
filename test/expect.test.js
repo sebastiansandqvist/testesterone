@@ -6,6 +6,7 @@ describe('expect', function() {
 	describe('equal', function() {
 
 		it('works if equal', function() {
+
 			assert.doesNotThrow(function() {
 				expect(true).to.equal(true);
 			});
