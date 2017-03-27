@@ -1,8 +1,9 @@
-# s-browser-test
+# Testesterone
 
-## Run your clientside tests in the browser
+## Strengthen your clientside applications with in-browser tests
 
 * Output is printed to the console
-* Is able to handle async/promise tests
+* Is able to handle async tests
 * No need to mock `window` and browser APIs
-* Minimal `expect`-style assertion library (optional)
+* Minimal `expect`-style assertions built-in
+

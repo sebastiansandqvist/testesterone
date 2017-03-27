@@ -1,15 +1,15 @@
 {
-  "name": "s-browser-test",
-  "version": "0.0.0",
-  "description": "In-browser test runner",
+  "name": "testesterone",
+  "version": "0.0.1",
+  "description": "In-browser test runner and assertion library",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c test/demo/rollup.config.js --watch",
-    "test": "mocha"
+    "build": "rollup -c rollup.config.js && rollup -c test/demo/rollup.config.js",
+    "test": "open test/demo/index.html"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastiansandqvist/s-browser-test.git"
+    "url": "git+https://github.com/sebastiansandqvist/testesterone.git"
   },
   "keywords": [
     "test",
@@ -22,18 +22,14 @@
   "author": "sebastian sandqvist",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sebastiansandqvist/s-browser-test/issues"
+    "url": "https://github.com/sebastiansandqvist/testesterone/issues"
   },
-  "homepage": "https://github.com/sebastiansandqvist/s-browser-test#readme",
+  "homepage": "https://github.com/sebastiansandqvist/testesterone#readme",
   "devDependencies": {
-    "@seabass/eslint-config": "1.8.3",
-    "chai": "3.5.0",
-    "mocha": "3.2.0",
     "rollup": "0.41.6",
     "rollup-plugin-buble": "0.15.0",
     "rollup-plugin-commonjs": "8.0.2",
-    "rollup-plugin-node-resolve": "2.0.0",
-    "rollup-watch": "3.2.2"
+    "rollup-plugin-node-resolve": "2.0.0"
   },
   "dependencies": {
     "deep-equal": "1.0.1"
