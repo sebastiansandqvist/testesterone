@@ -1,6 +1,6 @@
 {
   "name": "testesterone",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "In-browser test runner and assertion library",
   "main": "index.js",
   "scripts": {
