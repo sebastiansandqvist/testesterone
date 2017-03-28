@@ -1,5 +1,7 @@
 # Testesterone
 
+<img src="screenshots/testesterone.gif" align="center">
+
 ## Strengthen your clientside applications with in-browser tests
 
 * Output is printed to the console

@@ -4,8 +4,8 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 
 export default {
 	moduleName: 'test',
-	entry: 'test/demo/index.test.js',
-	dest: 'test/demo/index.bundle.js',
+	entry: 'test/demo1/index.test.js',
+	dest: 'test/demo1/index.bundle.js',
 	format: 'iife',
 	plugins: [
 		nodeResolve({ browser: true }),

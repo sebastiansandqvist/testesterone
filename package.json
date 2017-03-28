@@ -4,7 +4,7 @@
   "description": "In-browser test runner and assertion library",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js && rollup -c test/demo/rollup.config.js",
+    "build": "rollup -c rollup.config.js && rollup -c test/demo1/rollup.config.js && rollup -c test/demo2/rollup.config.js --watch",
     "test": "open test/demo/index.html"
   },
   "repository": {
@@ -29,7 +29,8 @@
     "rollup": "0.41.6",
     "rollup-plugin-buble": "0.15.0",
     "rollup-plugin-commonjs": "8.0.2",
-    "rollup-plugin-node-resolve": "2.0.0"
+    "rollup-plugin-node-resolve": "2.0.0",
+    "rollup-watch": "3.2.2"
   },
   "dependencies": {
     "deep-equal": "1.0.1"
