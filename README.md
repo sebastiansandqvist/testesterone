@@ -27,12 +27,12 @@ var h1 = document.querySelector('h1');
 var nameInput = document.getElementById('nameInput');
 
 nameInput.oninput = function() {
-	h1.textContent = 'Hello ' + nameInput.value;
+  h1.textContent = 'Hello ' + nameInput.value;
 };
 ```
 
 _`app.test.js`_
-```	js
+``` js
 var test = require('testesterone');
 
 var h1 = document.querySelector('h1');
@@ -40,17 +40,17 @@ var nameInput = document.getElementById('nameInput');
 
 test('Hello world', function(it) {
 
-	it('is initialized to "Hello"', function(expect) {
-		expect(h1.textContent).to.equal('Hello!');
-	});
+  it('is initialized to "Hello"', function(expect) {
+    expect(h1.textContent).to.equal('Hello!');
+  });
 
-	it('updates text to input\'s value', function(expect) {
-		nameInput.value = 'world';
-		nameInput.oninput();
-		expect(h1.textContent).to.equal('Hello world');
-	});
+  it('updates text to input\'s value', function(expect) {
+    nameInput.value = 'world';
+    nameInput.oninput();
+    expect(h1.textContent).to.equal('Hello world');
+  });
 
-	it('saves result in localstorage'); // not yet implemented!
+  it('saves result in localstorage'); // not yet implemented!
 
 })();
 ```
@@ -71,7 +71,7 @@ The `test` function creates a group in the console that contains your assertions
 
 ```js
 test('foo', function() {
-	// ...
+  // ...
 })();
 ```
 
@@ -81,10 +81,10 @@ test('foo', function() {
 
 ```js
 test('Array', function() {
-	test('indexOf', function() {});
-	test('join', function() {});
-	test('push', function() {});
-	test('slice', function() {});
+  test('indexOf', function() {});
+  test('join', function() {});
+  test('push', function() {});
+  test('slice', function() {});
 })();
 ```
 
@@ -100,7 +100,7 @@ Assertions are run within the context of an `it` function that helps label the f
 
 ```js
 test('foo', function(it) {
-	it('runs a test');
+  it('runs a test');
 })();
 ```
 
@@ -110,9 +110,9 @@ When `it` is called, the first argument must be a string that serves as the labe
 
 ```js
 test('foo', function(it) {
-	it('runs a test', function(expect) {
-		expect(123).to.equal(456);
-	});
+  it('runs a test', function(expect) {
+    expect(123).to.equal(456);
+  });
 })();
 ```
 
@@ -126,9 +126,9 @@ Now let's make the test pass:
 
 ```js
 test('foo', function(it) {
-	it('runs a test', function(expect) {
-		expect(123).to.equal(123);
-	});
+  it('runs a test', function(expect) {
+    expect(123).to.equal(123);
+  });
 })();
 ```
 
@@ -139,28 +139,28 @@ Or for a more complete example:
 ```js
 test('Array', function(it) {
 
-	test('indexOf', function() {
-		it('returns the index of an element in the array', function(expect) {
-			expect([1, 2, 3].indexOf(3)).to.equal(2);
-		});
-	});
+  test('indexOf', function() {
+    it('returns the index of an element in the array', function(expect) {
+      expect([1, 2, 3].indexOf(3)).to.equal(2);
+    });
+  });
 
-	test('join', function() {
-		it('joins an array into a string', function(expect) {
-			expect([1, 2, 3].join(':')).to.equal('1:2:3');
-		});
-		it('joins with a comma by default', function(expect) {
-			expect([1, 2, 3].join()).to.equal('1,2,3');
-		});
-	});
+  test('join', function() {
+    it('joins an array into a string', function(expect) {
+      expect([1, 2, 3].join(':')).to.equal('1:2:3');
+    });
+    it('joins with a comma by default', function(expect) {
+      expect([1, 2, 3].join()).to.equal('1,2,3');
+    });
+  });
 
-	test('push', function() {
-		it('appends an item to an array', function(expect) {
-			var x = [1, 2, 3];
-			x.push(4);
-			expect(x).to.equal([1, 2, 3, 4]);
-		});
-	});
+  test('push', function() {
+    it('appends an item to an array', function(expect) {
+      var x = [1, 2, 3];
+      x.push(4);
+      expect(x).to.equal([1, 2, 3, 4]);
+    });
+  });
 
 })();
 ```
@@ -196,12 +196,12 @@ Async functions can be easily tested with testesterone. As a bonus, their execut
 
 ```js
 test('foo', function(it) {
-	it('runs a test after 1 second', function(expect, done) {
-		setTimeout(function() {
-			expect('foo').to.equal('foo');
-			done();
-		}, 1000);
-	});
+  it('runs a test after 1 second', function(expect, done) {
+    setTimeout(function() {
+      expect('foo').to.equal('foo');
+      done();
+    }, 1000);
+  });
 })();
 ```
 
@@ -213,14 +213,14 @@ This works with promises as well. The equivalent promise to the above function w
 
 ```js
 test('foo', function(it) {
-	it('runs a test after 1 second', function(expect, done) {
-		new Promise(function(resolve) {
-			setTimeout(function() {
-				expect('foo').to.equal('foo');
-				resolve();
-			}, 1000);
-		}).then(done);
-	});
+  it('runs a test after 1 second', function(expect, done) {
+    new Promise(function(resolve) {
+      setTimeout(function() {
+        expect('foo').to.equal('foo');
+        resolve();
+      }, 1000);
+    }).then(done);
+  });
 })();
 ```
 
@@ -232,12 +232,12 @@ For example:
 test.timeout = 9000; // set the max time a single test can run to 9 seconds
 
 test('foo', function(it) {
-	it('tests a long-running function', function(expect, done) {
-		setTimeout(function() {
-			expect('foo').to.equal('foo');
-			done();
-		}, 4000);
-	});
+  it('tests a long-running function', function(expect, done) {
+    setTimeout(function() {
+      expect('foo').to.equal('foo');
+      done();
+    }, 4000);
+  });
 })();
 ```
 
@@ -245,13 +245,13 @@ And it should be noted that tests do not have to be asynchronous in order for th
 
 ```js
 test('heavy function', function() {
-	it('takes a while to compute', function(expect, done) {
-		var numbers = [];
-		for (var i = 0; i < 123456789; i++) {
-			numbers.push(i);
-		}
-		done();
-	});
+  it('takes a while to compute', function(expect, done) {
+    var numbers = [];
+    for (var i = 0; i < 123456789; i++) {
+      numbers.push(i);
+    }
+    done();
+  });
 });
 ```
 
@@ -261,8 +261,8 @@ Assertions can be written in a more terse syntax if desired:
 
 ```js
 test('foo', function(it) {
-	it('does something', (t) => t('foo').not.equal('bar')); // test passes
-	it('does something else', (t) => t('foo').equal('bar')); // test fails
+  it('does something', (t) => t('foo').not.equal('bar')); // test passes
+  it('does something else', (t) => t('foo').equal('bar')); // test fails
 });
 ```
 
