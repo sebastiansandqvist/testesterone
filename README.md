@@ -2,10 +2,10 @@
 
 **Strengthen your clientside applications with in-browser tests**
 
-* Output is printed to the console
-* Handle async tests
 * No need to mock `window` and browser APIs
-* Minimal `expect`-style assertions built-in
+* Output is printed to the console
+* Async tests are supported
+* Minimal `expect`-style assertions are built-in
 
 ## Installation
 
@@ -228,7 +228,7 @@ test('foo', function(it) {
 })();
 ```
 
-The default maximum timeout on an asynchronous function before it is forced to fail is 2 seconds. This can be configured by setting `test.timeout` prior to running a test.
+If `done` is not called within 2 seconds of the test being run, the test will automatically fail. This timeout can be configured by setting `test.timeout` to any number of milliseconds prior to running a test. The timeout can even be modified on a test-by-test basis.
 
 For example:
 
