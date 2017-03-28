@@ -75,7 +75,7 @@ test('foo', function() {
 })();
 ```
 
-<img src="screenshots/testesterone-test-1.png" align="center">
+<img src="screenshots/testesterone-test-1.png" align="center" width="475">
 
 `test`s can also be nested, which allows for grouping. For example:
 
