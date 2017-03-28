@@ -123,7 +123,7 @@ test('foo', function(it) {
 
 <img src="screenshots/testesterone-test-4.png" align="center">
 
-This test obviously fails. We can expand the failing test to see the reason for the failure. And in fact, this can be further expanded to reveal the full stack trace if desired.
+This test obviously fails. We can expand the failing test case to see the reason for the failure. And in fact, this can be further expanded to reveal the full stack trace if desired.
 
 <img src="screenshots/testesterone-test-5.png" align="center">
 
