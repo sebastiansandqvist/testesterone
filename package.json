@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c rollup.config.js && rollup -c test/demo1/rollup.config.js && rollup -c test/demo2/rollup.config.js --watch",
-    "test": "open test/demo/index.html"
+    "test": "open test/demo1/index.html"
   },
   "repository": {
     "type": "git",
