@@ -188,7 +188,11 @@ All of the methods can be prefixed with `to` so that they read like spoken engli
 expect(x).to.equal(y);
 ```
 
-Unlike assertion libraries like Chai, which include many methods that allow code like the following to be written: `expect('foo bar').to.include('bar');`, this library opts instead for a minimal api so that you do not have to check the documentation to know what is and is not supported by the assertion library. Anything that could be tested with those helper methods can be tested using the `to.equal()` interface. For instance, the previous example could be written as: `expect('foo bar'.includes('bar')).to.equal(true);` or even: `expect('foo bar'.indexOf('bar') > -1).to.equal(true);`.
+Unlike assertion libraries like Chai, which include many methods that allow code like the following to be written: `expect('foo bar').to.include('bar');`, this library opts instead for a minimal api so that you do not have to check the documentation to know what is and is not supported by the assertion library. Anything that could be tested with those helper methods can be tested using the `to.equal()` interface. For instance, the previous example could be written as: `expect('foo bar'.includes('bar')).to.equal(true);` or even:
+
+```js
+expect('foo bar'.indexOf('bar') > -1).to.equal(true);
+```
 
 ## Async support
 
