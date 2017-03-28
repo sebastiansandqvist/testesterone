@@ -93,7 +93,7 @@ test('Array', function() {
 
 <img src="screenshots/testesterone-test-2.png" align="center">
 
-_(Note that the outermost `test()`'s return value is a function that must be called! Without doing this, your tests will not be run. ie. You should do this: `test(label, callback)()`)_
+> Note that the outermost `test()`'s return value is a function that must be called! Without doing this, your tests will not be run. ie. You should do this: `test(label, callback)()`
 
 Of course, this is not very useful without assertions to run.
 
