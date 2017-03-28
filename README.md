@@ -3,6 +3,7 @@
 **Strengthen your clientside applications with in-browser tests**
 
 * No need to mock `window` and browser APIs
+* No global scope pollution
 * Output is printed to the console
 * Async tests are supported
 * Minimal `expect`-style assertions are built-in
@@ -76,6 +77,8 @@ test('foo', function() {
 ```
 
 <img src="screenshots/testesterone-test-1.png" align="center">
+
+`test` is the equivalent to Mocha's `describe` function.
 
 `test`s can also be nested, which allows for grouping. For example:
 
