@@ -99,7 +99,7 @@ Of course, this is not very useful without assertions to run.
 
 #### `it(label, callback)`
 
-Assertions are run within the context of an `it` function that helps label the functionality of what it is that these assertions test.
+Assertions are run within the context of a test case defined by an `it` function.
 
 ```js
 test('foo', function(it) {
