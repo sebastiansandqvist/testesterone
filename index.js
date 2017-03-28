@@ -252,17 +252,17 @@ function unwindQueue(queue) {
 		const time = performance.now() - globalStartTime;
 		const timeStr = time > 9999 ? (time / 1000).toFixed(2) + 's' : time.toFixed() + 'ms';
 		console.log(
-			'%c[ ✓ ] %d passed%c [%s]',
+			'%c%d passed%c [%s]',
 			'color: #27ae60',
 			passCount,
 			'color: #f39c12; font-style: italic',
 			timeStr
 		);
 		if (failCount > 0) {
-			console.log('%c[ ✗ ] %d failed', 'color: #e71600', failCount);
+			console.log('%c%d failed', 'color: #e71600', failCount);
 		}
 		if (pendingCount > 0) {
-			console.log('%c[ i ] %d pending', 'color: #3498db', pendingCount);
+			console.log('%c%d pending', 'color: #3498db', pendingCount);
 		}
 		return;
 	}
