@@ -278,6 +278,6 @@ Testesterone also works with the dark theme in Chrome's developer console:
 
 ## Caveats
 
-1. Other browsers are not officially supported at this time. Many do not have the same degree of support for the `console` methods as Chrome, and this library makes use of many.
+1. Browsers besides Google Chrome are not officially supported at this time. Many do not have the same degree of support for the `console` methods, which this library makes use of.
 2. Tests must be run within a browser context. This wasn't intended to be used in node.js.
 3. The `expect` interface relies internally on `console.assert` and does not throw an error if an assertion fails. For this reason, external assertion libraries like Chai would be difficult to integrate.
