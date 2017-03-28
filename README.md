@@ -61,7 +61,7 @@ test('Hello world', function(it) {
 
 Testesterone was built to make it simple to test clientside code within a browser. This means there is no need for headless browsers, or for simulating a browser environment from within node.js.
 
-In addition, all test results appear in the console, not in any sort of ui. This allows you to run assertions against the actual contents of the DOM within your tests.
+In addition, all test results appear in the console, not in any sort of ui on the page itself. This allows you to run assertions against the actual contents of the DOM within your tests.
 
 ### API
 
@@ -106,7 +106,7 @@ test('foo', function(it) {
 
 <img src="screenshots/testesterone-test-3.png" align="center">
 
-When `it` is called, the first argument must be a string that serves as the label for that test. If only that label is passed to `it`, then the test serves only as an informational label. This can be a placeholder for some future test that needs to be written, or for some functionality that has yet to be implemented. To run a test, you must pass a second argument to `it` which is a callback function that takes a parameter. This parameter is what will create each assertion.
+When `it` is called, the first argument must be a string that is the label for that test. If only that label is passed to `it`, then the test serves as an informational label and does not run any assertions. This can be a placeholder for some future test that needs to be written, or for some functionality that has yet to be implemented. To run a test, you must pass a second argument to `it` which is a callback function that takes a parameter. This parameter is what will create each assertion.
 
 ```js
 test('foo', function(it) {
@@ -188,7 +188,7 @@ All of the methods can be prefixed with `to` so that they read like spoken engli
 expect(x).to.equal(y);
 ```
 
-Unlike assertion libraries like Chai, which include many methods that allow code like the following to be written: `expect('foo bar').to.include('bar');`, this library opts instead for a minimal api so that you do not have to check the documentation to know what is and is not supported by the assertion library. Anything that could be tested with those helper methods can be tested using the `to.equal()` interface. For instance, the previous example could be written as: `expect('foo bar'.includes('bar')).to.equal(true);`.
+Unlike assertion libraries like Chai, which include many methods that allow code like the following to be written: `expect('foo bar').to.include('bar');`, this library opts instead for a minimal api so that you do not have to check the documentation to know what is and is not supported by the assertion library. Anything that could be tested with those helper methods can be tested using the `to.equal()` interface. For instance, the previous example could be written as: `expect('foo bar'.includes('bar')).to.equal(true);` or even: `expect('foo bar'.indexOf('bar') > -1).to.equal(true);`.
 
 ## Async support
 
