@@ -177,7 +177,7 @@ test('testesterone', function(it) {
 			}, 500);
 		});
 
-		it('[pass] 500ms', function(expect, done) {
+		it('[pass] 500ms deep equal', function(expect, done) {
 			setTimeout(function() {
 				expect([1, 2, 3]).to.deep.equal([1, 2, 3]);
 				done();

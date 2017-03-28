@@ -158,6 +158,11 @@ window.addEventListener('error', function() {
 
 var makeNoop = function () { return function () {}; };
 
+var globalStartTime = performance.now();
+var passCount = 0;
+var failCount = 0;
+var pendingCount = 0;
+
 function it(label, fn) {
 	var isPlaceholder = typeof fn !== 'function';
 	var labeledFn = isPlaceholder ? makeNoop() : fn;
@@ -222,6 +227,7 @@ function isSimple(x) {
 }
 
 function logError(assertion) {
+	failCount++;
 	console.groupCollapsed(
 		'%c[ ✗ ] %c' + assertion.label,
 		'color: #e71600',
@@ -245,6 +251,7 @@ function logError(assertion) {
 }
 
 function logSuccess(label, time) {
+	passCount++;
 	console.log(
 		'%c[ ✓ ] %c' + label + '%c' + (time ? (' [' + time + 'ms]') : ''),
 		'color: #27ae60',
@@ -262,6 +269,7 @@ function callWithExpect(fn, cb) {
 	}
 
 	if (fn.isPlaceholder) {
+		pendingCount++;
 		console.log(
 			'%c[ i ] %c' + fn.label,
 			'color: #3498db',
@@ -388,7 +396,22 @@ function callWithExpect(fn, cb) {
 }
 
 function unwindQueue(queue) {
-	if (queue.length === 0) { return; }
+
+	if (queue.length === 0) {
+		var time = performance.now() - globalStartTime;
+		var timeStr = time > 9999 ? (time / 1000).toFixed(2) + 's' : time.toFixed() + 'ms';
+		console.log(
+			'%c[ ✓ ] %d passed%c [%s]',
+			'color: #27ae60',
+			passCount,
+			'color: #f39c12; font-style: italic',
+			timeStr
+		);
+		console.log('%c[ ✗ ] %d failed', 'color: #e71600', failCount);
+		console.log('%c[ i ] %d pending', 'color: #3498db', pendingCount);
+		return;
+	}
+
 	var fn = queue.shift();
 	var isAsync = fn.length === 2; // function(expect, done) { ... }
 	if (isAsync) {
@@ -590,7 +613,7 @@ index('testesterone', function(it) {
 			}, 500);
 		});
 
-		it('[pass] 500ms', function(expect, done) {
+		it('[pass] 500ms deep equal', function(expect, done) {
 			setTimeout(function() {
 				expect([1, 2, 3]).to.deep.equal([1, 2, 3]);
 				done();
