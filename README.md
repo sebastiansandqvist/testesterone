@@ -109,7 +109,9 @@ test('foo', function(it) {
 
 <img src="screenshots/testesterone-test-3.png" align="center">
 
-When `it` is called, the first argument must be a string that is the label for that test. If only that label is passed to `it`, then the test serves as an informational label and does not run any assertions. This can be a placeholder for some future test that needs to be written, or for some functionality that has yet to be implemented. To run a test, you must pass a second argument to `it` which is a callback function that takes a parameter. This parameter is what will create each assertion.
+`it(label)` Produces an informational label that does not run any assertions. This can be a placeholder for some future test that needs to be written, or for some functionality that has yet to be implemented.
+
+`it(label, callback)` Calls the callback and runs its assertions. If no assertion error occurred, then the test will pass.
 
 ```js
 test('foo', function(it) {
