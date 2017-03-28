@@ -419,7 +419,7 @@ var nameInput = document.getElementById('nameInput');
 index('Hello world', function(it) {
 
 	it('is initialized to "Hello"', function(expect) {
-		expect(h1.textContent).to.equal('Hello!!!');
+		expect(h1.textContent).to.equal('Hello!');
 	});
 
 	it('updates text to input\'s value', function(expect) {
@@ -428,7 +428,7 @@ index('Hello world', function(it) {
 		expect(h1.textContent).to.equal('Hello world');
 	});
 
-	it('saves result in localstorage'); // todo!
+	it('saves result in localstorage'); // not yet implemented!
 
 })();
 
